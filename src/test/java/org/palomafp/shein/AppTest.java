@@ -1,8 +1,9 @@
 package org.palomafp.shein;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+import org.palomafp.shein.modelo.*;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Unit test for simple App.
@@ -12,9 +13,13 @@ public class AppTest
     /**
      * Rigorous Test :-)
      */
+    
+   
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    void TestShein() {
+
+        SheinDAO sheinDAO = new SheinDAO();
+        Modelo modelo = sheinDAO.getModelos().get(0);
+        assertNotNull(modelo, "El resultado no debe ser nulo");
     }
 }

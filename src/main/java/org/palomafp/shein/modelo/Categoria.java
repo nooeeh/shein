@@ -1,7 +1,5 @@
 package org.palomafp.shein.modelo;
-import java.util.List;
 public class Categoria {
-    private List<Producto> productos;
     private String tipo;
     private Genero genero;
 
@@ -12,18 +10,9 @@ public class Categoria {
     public Categoria() {
     }
 
-    public Categoria(List<Producto> productos, String tipo, Genero genero) {
-        this.productos = productos;
+    public Categoria(String tipo, Genero genero) {
         this.tipo = tipo;
         this.genero = genero;
-    }
-
-    public List<Producto> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
     }
 
     public String getTipo() {
@@ -46,7 +35,7 @@ public String toString() {
     return "Categoria{" +
             "tipo='" + tipo + '\'' +
             ", genero=" + genero +
-            ", totalProductos=" + (productos != null ? productos.size() : 0) + 
+            ", totalProductos=" +  
             '}';
 }
    

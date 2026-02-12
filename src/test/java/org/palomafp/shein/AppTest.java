@@ -18,7 +18,7 @@ public class AppTest
     @Test
     void TestShein() {
 
-        SheinDAO sheinDAO = new SheinDAO();
+        ProductosDAO sheinDAO = new ProductosDAO();
         Modelo modelo = sheinDAO.getModelos().get(0);
         assertNotNull(modelo, "El resultado no debe ser nulo");
     }

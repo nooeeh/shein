@@ -1,25 +1,11 @@
 ```mermaid
 classDiagram
 
-
-
-App "1" o-- "1..n" Local
-App "1" o-- "1..n" Categoria
-App "1" o-- "0..n" Distribuidor
-App "1" o-- "0..n" Modelo
 Producto "1..n" *-- "1" Categoria
 Producto "1" --> "0..n" Distribuidor
-Producto "0..n" --> "0..n" Modelo
+Producto "0..n" --> "1" Modelo
 Local "1..n" o-- "1..n" Producto
 
-
-    class App {
-        -List<Local> locales
-        -List<Categoria> categorias
-        -List<Distribuidor> distribuidores
-        -List<Modelo> modelos
-        -String nombreApp
-    }
 
 
     class Producto {
@@ -29,6 +15,7 @@ Local "1..n" o-- "1..n" Producto
         -String precio
         -String material
         -Categoria categoria
+        -Modelo modelo
 
     }
 

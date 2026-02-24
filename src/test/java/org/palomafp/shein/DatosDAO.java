@@ -11,11 +11,10 @@ public class DatosDAO {
 
         ProductosDAO dao = new ProductosDAO();
 
-        assertNotNull(dao);
-        assertNotNull(dao.getProductos());
-        assertNotNull(dao.getLocales());
-        assertNotNull(dao.getModelos());
-        assertNotNull(dao.getDistribuidores());
-        assertNotNull(dao.getCategorias());
+        assertNotNull(dao.getProductoByCodigo(23));
+        assertNotNull(dao.getAllProductos());
+        assertNotNull(dao.getProductoRandom());
+        
+       
     }
 }

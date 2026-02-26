@@ -117,7 +117,10 @@ public class ProductosDAO {
     }
 
     //objeto por id
-    public Producto getProductoByCodigo(int codigo) {
+    public Producto getProductoByCodigo(Integer codigo) {
+        if (codigo == null) {
+            return null;
+        }
         for (Producto producto : productos) {
             if (producto.getCodigo() == codigo) {
                 return producto;
@@ -129,6 +132,11 @@ public class ProductosDAO {
     //todos los productos
     public List<Producto> getAllProductos() {
 
+        return productos;
+    }
+
+    public List<Producto> clearAll() {
+        productos.clear();
         return productos;
     }
 }

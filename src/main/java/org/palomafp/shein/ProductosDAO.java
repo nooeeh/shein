@@ -7,10 +7,19 @@ import org.palomafp.shein.modelo.Distribuidor;
 import org.palomafp.shein.modelo.Modelo;
 import org.palomafp.shein.modelo.Producto;
 
+/** 
+ * Clase del objeto principal que incumbre todas las funcionalidades del resto de clases
+ * @author Noelia Jorquera y Samuel Pérez
+ * @version 1.0
+ */
 public class ProductosDAO {
 
+    //Lista de productos de la clase productoDAO
     private List<Producto> productos;
 
+    /**
+     * Constructor de productos con la lista de productos
+     */
     public ProductosDAO() {
 
         //inicializamos la lista de productos
@@ -106,17 +115,23 @@ public class ProductosDAO {
 
     }
 
-    // get objeto random
+    /**
+     * Metodo que genera un producto aleatorio si no está vacía la lista de productos
+     * @return Devuelve un producto aleatorio
+     */
     public Producto getProductoRandom() {
         if (productos.isEmpty()) {
             return null;
         } else {
-            
             return productos.get((int) (Math.random() * productos.size()));
         }
     }
 
-    //objeto por id
+    /**
+     * Metodo que devuelve un producto especificado por su codigo, si el codigo existe
+     * @param codigo codigo del producto al cual quieres acceder
+     * @return Devuelve el producto del codigo introducido
+     */
     public Producto getProductoByCodigo(Integer codigo) {
         if (codigo == null) {
             return null;
@@ -129,12 +144,18 @@ public class ProductosDAO {
         return null;
     }
 
-    //todos los productos
+    /**
+     * Metodo que devuelve todos los productos que hay
+     * @return Devuelve la lista entera de productos
+     */
     public List<Producto> getAllProductos() {
-
         return productos;
     }
 
+    /**
+     * Metodo que borra todos los productos que hay en la lista productos
+     * @return devuelve la lista vacía como confirmación de que ha funcionado
+     */
     public List<Producto> clearAll() {
         productos.clear();
         return productos;

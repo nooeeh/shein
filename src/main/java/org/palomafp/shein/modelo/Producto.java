@@ -1,12 +1,19 @@
 package org.palomafp.shein.modelo;
 import java.util.List;
 
+/**
+ * Clase producto con todos los atributos y métodos para crear un producto completo e implementarlo en otras clases
+ */
 public class Producto {
+    // Codigo numérico de 4 dígitos
     private int codigo;
+    // Talla en EU
     private String talla;
     private String color;
+    // Precio del producto en euros
     private String precio;
     private String material;
+    // Persona que posa con dicho producto
     private Modelo modelo;
     private Categoria categoria;
     private List<Distribuidor> distribuidor;

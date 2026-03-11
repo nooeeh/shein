@@ -1,14 +1,23 @@
 package org.palomafp.shein;
 import java.util.Scanner;
 
+/**
+ * Clase principal que implementa y prueba las clases del proyecto
+ */
 public class App {
 
+    /**
+     * Método principal que inicia la ejecución de la aplicación
+     * @param args Array de parámetros de entrada
+     */
     public static void main(String[] args) {
 
-        //Instanciamos DAO de productos
+        /**
+         * Nuevo objeto de productos ProductosDAO
+         */
         ProductosDAO productosDAO = new ProductosDAO();
 
-        // --- PRUEBAS POR CONSOLA ---
+        // Menu de opciones con las pruebas de las clases
         Scanner sc = new Scanner(System.in);
         int opcion;
         int codigo;

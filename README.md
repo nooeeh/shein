@@ -1,3 +1,4 @@
+
 # Proyecto Shein
 
 ## Descripción
@@ -146,27 +147,44 @@ La clase `ProductosDAO` proporciona los siguientes métodos públicos:
 
 ## Pruebas
 
-El proyecto incluye pruebas unitarias usando JUnit 5. Para ejecutarlas:
+El proyecto incluye un conjunto completo de pruebas unitarias desarrolladas con JUnit 5, que garantizan la calidad y funcionalidad del código. Para ejecutar las pruebas:
 
 ```bash
 mvn test
 ```
 
-Las pruebas cubren:
-- Funcionalidad del DAO (`ProductosDAOTest.java`)
-- Clase principal (`AppTest.java`)
+### Cobertura de Pruebas
+
+Las pruebas cubren los siguientes aspectos:
+
+#### ProductosDAOTest.java
+- **testInicializacionDAO**: Verifica la inicialización correcta del DAO y la existencia de productos.
+- **getProductoRandomEmpty**: Prueba el comportamiento cuando la lista de productos está vacía.
+- **getProductoRandom**: Valida que se devuelve un producto aleatorio válido con todos sus atributos.
+- **getProductoByCodigoNull**: Comprueba el manejo de códigos nulos.
+- **getProductoByCodigoReal**: Confirma la búsqueda exitosa de productos por código válido.
+- **getProductoByCodigoInvalido**: Asegura que se devuelve null para códigos inexistentes.
+- **getAllProductos**: Verifica que se obtiene la lista completa de productos.
+- **clearAll**: Prueba la funcionalidad de limpiar la lista de productos.
+
+#### AppTest.java
+- **TestShein**: Verifica la inicialización básica de la aplicación.
+- **TestProductoRandom**: Confirma que el DAO puede devolver un producto aleatorio.
+- **TestProductoByCodigo**: Valida la búsqueda de productos por código.
+
+En total, se incluyen 11 pruebas unitarias que cubren las funcionalidades críticas del sistema, incluyendo casos normales, casos límite y manejo de errores.
+
+## Documentación
+
+La documentación completa del proyecto, incluyendo Javadoc para todas las clases y métodos, se encuentra en la carpeta `doc/`. Esta documentación fue generada automáticamente utilizando GitHub Copilot.
+
+Para acceder a la documentación:
+- Abre `doc/index.html` en un navegador web.
+- Navega por las clases, métodos y paquetes del proyecto.
 
 ## Dependencias
 
 - **JUnit 5.11.0**: Framework de pruebas unitarias (solo en ámbito de test)
-
-## Contribución
-
-1. Fork el proyecto.
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`).
-3. Commit tus cambios (`git commit -am 'Añade nueva funcionalidad'`).
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`).
-5. Abre un Pull Request.
 
 ### Guías de Estilo
 
@@ -174,15 +192,7 @@ Las pruebas cubren:
 - Añade documentación Javadoc a métodos públicos.
 - Incluye pruebas unitarias para nuevas funcionalidades.
 
-## Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
 ## Autores
 
 - **Noelia Jorquera**
 - **Samuel Pérez**
-
-## Agradecimientos
-
-Proyecto desarrollado como parte de un curso de Programación Orientada a Objetos en Java.

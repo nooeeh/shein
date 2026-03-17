@@ -47,6 +47,39 @@ public class ProductosDAOTest {
     void getProductoByCodigoReal() {
     ProductosDAO dao = new ProductosDAO();
     Producto resultado = dao.getProductoByCodigo(1001);
-    assertEquals(null, resultado, "Sale null al ya existir ese código");
+    assertNotNull(resultado, "Debe devolver un producto cuando el código existe");
+    assertEquals(1001, resultado.getCodigo(), "El código debe coincidir");
+    }
+
+    @Test
+    void getProductoByCodigoInvalido() {
+        ProductosDAO dao = new ProductosDAO();
+        Producto resultado = dao.getProductoByCodigo(9999);
+        assertNull(resultado, "Debe devolver null cuando el código no existe");
+    }
+
+    @Test
+    void getAllProductos() {
+        ProductosDAO dao = new ProductosDAO();
+        var productos = dao.getAllProductos();
+        assertNotNull(productos, "La lista no puede ser null");
+        assertFalse(productos.isEmpty(), "La lista no puede estar vacía");
+        assertTrue(productos.size() >= 4, "Debe haber al menos 4 productos según la inicialización");
+        // Verificar que contiene productos específicos
+        assertTrue(productos.stream().anyMatch(p -> p.getCodigo() == 1001), "Debe contener el producto con código 1001");
+    }
+
+    @Test
+    void clearAll() {
+        ProductosDAO dao = new ProductosDAO();
+        var productosAntes = dao.getAllProductos();
+        assertFalse(productosAntes.isEmpty(), "Debe haber productos antes de limpiar");
+
+        var resultado = dao.clearAll();
+        assertNotNull(resultado, "clearAll debe devolver la lista");
+        assertTrue(resultado.isEmpty(), "La lista debe estar vacía después de clearAll");
+
+        var productosDespues = dao.getAllProductos();
+        assertTrue(productosDespues.isEmpty(), "getAllProductos debe devolver lista vacía después de clearAll");
     }
 }

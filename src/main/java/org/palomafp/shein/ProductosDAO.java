@@ -120,9 +120,11 @@ public class ProductosDAO {
      * @return Devuelve un producto aleatorio
      */
     public Producto getProductoRandom() {
+        // Si la lista de productos está vacía, devolvemos null
         if (productos.isEmpty()) {
             return null;
         } else {
+            // generamos un índice aleatorio entre 0 y el tamaño de la lista de productos
             return productos.get((int) (Math.random() * productos.size()));
         }
     }
@@ -133,9 +135,11 @@ public class ProductosDAO {
      * @return Devuelve el producto del codigo introducido
      */
     public Producto getProductoByCodigo(Integer codigo) {
+        // Si el código es nulo, devolvemos null
         if (codigo == null) {
             return null;
         }
+        // recorremos la lista de productos para encontrar el producto
         for (Producto producto : productos) {
             if (producto.getCodigo() == codigo) {
                 return producto;

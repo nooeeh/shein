@@ -21,8 +21,8 @@ public class App {
 
         // Menu de opciones con las pruebas de las clases
         Scanner sc = new Scanner(System.in);
-        int opcion;
-        int codigo;
+        int opcion = 0;
+        int codigo = 0;
         do {
             System.out.println("=== PRUEBA DE CLASES SHEIN ===");
             System.out.println("1. Devolver un producto aleatorio");
@@ -30,27 +30,37 @@ public class App {
             System.out.println("3. Devolver un producto por su código");
             System.out.println("0. Salir del programa");
             System.out.println("Introduce una opción: ");
-            opcion = sc.nextInt();
-            sc.nextLine();
+
+            try {
+                opcion = sc.nextInt(); // añadidas excepciones
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Error: debes introducir un número válido.");
+                sc.nextLine();
+                opcion = -1;
+            }
+
             switch (opcion) {
-                // devolver un producto aleatorio
                 case 1:
                     System.out.println(productosDAO.getProductoRandom());
                     break;
-                // devolver la lista de todos los productos
                 case 2:
                     System.out.println(productosDAO.getAllProductos());
                     break;
-                // devolver un producto por su código
                 case 3:
                     System.out.println("Introduce el código:");
-                    codigo = sc.nextInt();
-                    sc.nextLine();
+                    try {
+                        codigo = sc.nextInt(); 
+                    } catch (java.util.InputMismatchException e) {
+                        System.out.println("Error: debes introducir un número.");
+                        sc.nextLine(); // añadidas excepciones
+                        codigo = -1;
+                    }
                     System.out.println(productosDAO.getProductoByCodigo(codigo));
                     break;
-                // salir del programa
                 case 0:
                     System.out.println("Saliendo...");
+                    // añadido break
+                    break;
                 default:
                     System.out.println("Introduce un valor válido");
                     System.out.println();
